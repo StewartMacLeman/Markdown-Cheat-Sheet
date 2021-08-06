@@ -20,10 +20,12 @@ body {
 h1 { font-size: 3rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
+h4 { font-size: 1.5rem; }
 p { font-size: 1.5rem; }
+code {font-size: 1.5rem; }
 button { font-size: 1.25rem; }
 
-h1, h2, h3, p, button {
+h1, h2, h3, h4, p, button {
   font-family: helvetica, tahoma, serif;
   text-align: center;
   margin: 0 auto;
@@ -60,9 +62,9 @@ h1, h2, h3, p, button {
    border-radius: 10px;
  }
  .main * {
-   margin: 10px auto;
+   margin: 1rem auto;
  }
- /* Markdown individual point container. --------------------- */
+ /* Markdown individual points container. --------------------- */
 .mkTopicCont {
   width: 90%;
   border: .15rem solid black;
@@ -73,14 +75,22 @@ h1, h2, h3, p, button {
   align-items: center;
 }
 .mkTopicCont * {
-  margin: 5px auto;
+  margin: .4rem auto;
   border: .1rem solid var(--greyBorder);
 }
-/* The hide and invisible classes. ------------------------------*/
+.codeCont {
+  display: flex;
+  justify-content: center;
+}
+.outcomeImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* The hide class. ---------------------------------------------*/
 .hide {
   display: none;
 }
-
 /* Media queries.----------------------------------------------- */
 @media screen and (max-width: 850px){
   .main { width: 90%; }
