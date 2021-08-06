@@ -1,30 +1,102 @@
 "use strict";
 
-let contentArray = [
-  {
-    h3Title: "How to make a Header",
-    h4CodeTitle: "The Code:",
-    code: "# This is a Header",
-    h4OutcomeTitle: "The Outcome:",
-    imgSrc: "./spare/header.png",
-    imgAlt: "An example of what a main header looks like."
-  },
-  {
-    h3Title: "How to make a Sub-Heading",
-    h4CodeTitle: "The Code:",
-    code: "## This is a Sub-Heading",
-    h4OutcomeTitle: "The Outcome:",
-    imgSrc: "./spare/sub-heading.png",
-    imgAlt: "An example of what a main header looks like."
-  },
-];
-
-// Global variables. ----------------------------------------------
+// Global variables. -------------------------------------------------
 let mainContainer = document.getElementById("mainCont");
 
-// Create the topic sections to be added to the main element. ------
+let contentArray = [
+  {
+    h3Title: "H1 Heading",
+    h4CodeTitle: "The Code:",
+    code: "# This is an h1 Heading",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/h1_header.png",
+    imgAlt: "An example of what an h1 header looks like."
+  },
+  {
+    h3Title: "H2 Heading",
+    h4CodeTitle: "The Code:",
+    code: "## This is an h2 Heading",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/h2_header.png",
+    imgAlt: "An example of what an h2 header looks like."
+  },
+  {
+    h3Title: "H3 Heading",
+    h4CodeTitle: "The Code:",
+    code: "### This is an h3 Heading",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/h3_header.png",
+    imgAlt: "An example of what an h3 header looks like."
+  },
+  {
+    h3Title: "Normal Text",
+    h4CodeTitle: "The Code:",
+    code: "This is some normal text!",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/normal_text.png",
+    imgAlt: "An example of what normal text looks like."
+  },
+  {
+    h3Title: "Bold Text",
+    h4CodeTitle: "The Code:",
+    code: "**This is some bold text!**",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/bold_text.png",
+    imgAlt: "An example of what bold text looks like."
+  },
+  {
+    h3Title: "Italicized Text",
+    h4CodeTitle: "The Code:",
+    code: "*This is some italicized text!*",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/italicized_text.png",
+    imgAlt: "An example of what italicized text looks like."
+  },
+  {
+    h3Title: "An Ordered List",
+    h4CodeTitle: "The Code:",
+    code: "1. An Ordered List",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/ordered_list.png",
+    imgAlt: "An example of what an ordered list looks like."
+  },
+  {
+    h3Title: "An Unordered List",
+    h4CodeTitle: "The Code:",
+    code: "- An Unordered List",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/unordered_list.png",
+    imgAlt: "An example of what an unordered list looks like."
+  },
+  {
+    h3Title: "A Horizontal Line",
+    h4CodeTitle: "The Code:",
+    code: "---",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/horizontal_line.png",
+    imgAlt: "An example of what a horizontal line looks like."
+  },
+  {
+    h3Title: "Images",
+    h4CodeTitle: "The Code:",
+    code: "![Thumbs Up](images/thumbsUp.JPG)",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/thumbsUp.JPG",
+    imgAlt: "An example of an image."
+  },
+  {
+    h3Title: "Links",
+    h4CodeTitle: "The Code:",
+    code: "[A Link Example](https://alinkexample.com)",
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/link.png",
+    imgAlt: "An example of a link."
+  }
+];
 
-function createSections(){
+// Creates the topic sections to be added to the main container. ------
+
+(function createSections(){
   for (let i = 0; i < contentArray.length; i++){
     // The div to be attached to the main.----------
     let outerDiv = document.createElement("div");
@@ -34,6 +106,7 @@ function createSections(){
     let h3Title = document.createElement("h3");
     let h3Text = document.createTextNode(`${contentArray[i].h3Title}`);
     h3Title.appendChild(h3Text);
+
     // The hide div to be attached to the outerDiv;
     let hideDiv = document.createElement("div");
     hideDiv.classList.add("hide");
@@ -60,6 +133,7 @@ function createSections(){
     imageEl.setAttribute("src", `${contentArray[i].imgSrc}`);
     imageEl.setAttribute("alt", `${contentArray[i].imgAlt}`);
     imageDiv.appendChild(imageEl);
+
     // The button to show / hide the code examples.
     let showButton = document.createElement("button");
     let buttonText = document.createTextNode("Show Content");
@@ -78,9 +152,7 @@ function createSections(){
 
     mainContainer.appendChild(outerDiv);
   }
-}
-
-createSections();
+})();
 
 // Show the content of each topic. ---------------------------------
 function displayContent(e){

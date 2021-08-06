@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  height: 98%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -56,6 +57,8 @@ h1, h2, h3, h4, p, button {
  /* The main container. ------------------------------------- */
  .main {
    width: 80%;
+   height: 80vh;
+   overflow-y: scroll;
    margin-top: 1rem;
    background-color: var(--palegreen);
    border: .25rem solid black;
@@ -76,16 +79,21 @@ h1, h2, h3, h4, p, button {
 }
 .mkTopicCont * {
   margin: .4rem auto;
-  border: .1rem solid var(--greyBorder);
 }
 .codeCont {
   display: flex;
   justify-content: center;
 }
+code {
+  padding: 0.25rem 0.5rem;
+}
 .outcomeImage {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.outcomeImage img {
+  width: 100%
 }
 /* The hide class. ---------------------------------------------*/
 .hide {
