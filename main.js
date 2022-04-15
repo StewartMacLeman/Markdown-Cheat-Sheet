@@ -7,7 +7,7 @@ let contentArray = [
   {
     h3Title: "H1 Heading",
     h4CodeTitle: "The Code:",
-    code: "# This is an h1 Heading",
+    code: ["# This is an h1 Heading"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/h1_header.png",
     imgAlt: "An example of what an h1 header looks like."
@@ -15,7 +15,7 @@ let contentArray = [
   {
     h3Title: "H2 Heading",
     h4CodeTitle: "The Code:",
-    code: "## This is an h2 Heading",
+    code: ["## This is an h2 Heading"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/h2_header.png",
     imgAlt: "An example of what an h2 header looks like."
@@ -23,7 +23,7 @@ let contentArray = [
   {
     h3Title: "H3 Heading",
     h4CodeTitle: "The Code:",
-    code: "### This is an h3 Heading",
+    code: ["### This is an h3 Heading"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/h3_header.png",
     imgAlt: "An example of what an h3 header looks like."
@@ -31,7 +31,7 @@ let contentArray = [
   {
     h3Title: "Normal Text",
     h4CodeTitle: "The Code:",
-    code: "This is some normal text!",
+    code: ["This is some normal text!"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/normal_text.png",
     imgAlt: "An example of what normal text looks like."
@@ -39,7 +39,7 @@ let contentArray = [
   {
     h3Title: "Bold Text",
     h4CodeTitle: "The Code:",
-    code: "**This is some bold text!**",
+    code: ["**This is some bold text!**"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/bold_text.png",
     imgAlt: "An example of what bold text looks like."
@@ -47,7 +47,7 @@ let contentArray = [
   {
     h3Title: "Italicized Text",
     h4CodeTitle: "The Code:",
-    code: "*This is some italicized text!*",
+    code: ["*This is some italicized text!*"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/italicized_text.png",
     imgAlt: "An example of what italicized text looks like."
@@ -55,7 +55,7 @@ let contentArray = [
   {
     h3Title: "An Ordered List",
     h4CodeTitle: "The Code:",
-    code: "1. An Ordered List",
+    code: ["1. An Ordered List"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/ordered_list.png",
     imgAlt: "An example of what an ordered list looks like."
@@ -63,7 +63,7 @@ let contentArray = [
   {
     h3Title: "An Unordered List",
     h4CodeTitle: "The Code:",
-    code: "- An Unordered List",
+    code: ["- An Unordered List"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/unordered_list.png",
     imgAlt: "An example of what an unordered list looks like."
@@ -71,7 +71,7 @@ let contentArray = [
   {
     h3Title: "A Horizontal Line",
     h4CodeTitle: "The Code:",
-    code: "---",
+    code: ["---"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/horizontal_line.png",
     imgAlt: "An example of what a horizontal line looks like."
@@ -79,7 +79,7 @@ let contentArray = [
   {
     h3Title: "Images",
     h4CodeTitle: "The Code:",
-    code: "![Thumbs Up](images/thumbsUp.JPG)",
+    code: ["![Thumbs Up](images/thumbsUp.JPG)"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/thumbsUp.JPG",
     imgAlt: "An example of an image."
@@ -87,10 +87,18 @@ let contentArray = [
   {
     h3Title: "Links",
     h4CodeTitle: "The Code:",
-    code: "[A Link Example](https://alinkexample.com)",
+    code: ["[A Link Example](https://alinkexample.com)"],
     h4OutcomeTitle: "The Outcome:",
     imgSrc: "./images/link.png",
     imgAlt: "An example of a link."
+  },
+  {
+    h3Title: "Code Examples",
+    h4CodeTitle: "The Code:",
+    code: ["```", "npm run seeds", "```"],
+    h4OutcomeTitle: "The Outcome:",
+    imgSrc: "./images/code_example.png",
+    imgAlt: "A code example."
   }
 ];
 
@@ -115,17 +123,23 @@ let contentArray = [
     let h4CodeTitle = document.createElement("h4");
     let h4CodeText = document.createTextNode(`${contentArray[i].h4CodeTitle}`);
     h4CodeTitle.appendChild(h4CodeText);
+
     // The code example, to be attached to the hide div.
     let codeDiv = document.createElement("div");
     codeDiv.classList.add("codeCont");
-    let codeEl = document.createElement("code");
-    let codeContent = document.createTextNode(`${contentArray[i].code}`);
-    codeEl.appendChild(codeContent);
-    codeDiv.appendChild(codeEl);
+    // Loop through the code property array.
+    for (let string of contentArray[i].code){
+      let codeEl = document.createElement("code");
+      let codeContent = document.createTextNode(`${string}`);
+      codeEl.appendChild(codeContent);
+      codeDiv.appendChild(codeEl);
+    }
+    
     // The h4 outcome title, to be attached to the hide div.
     let h4OutcomeTitle = document.createElement("h4");
     let h4OutcomeText = document.createTextNode(`${contentArray[i].h4OutcomeTitle}`);
     h4OutcomeTitle.appendChild(h4OutcomeText);
+    
     // The image example, to be attached to the hide div.
     let imageDiv = document.createElement("div");
     imageDiv.classList.add("outcomeImage");

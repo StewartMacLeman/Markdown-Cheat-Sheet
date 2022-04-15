@@ -81,7 +81,11 @@ h1, h2, h3, h4, p, button {
 }
 .codeCont {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.codeCont code {
+  width: 100%;
 }
 code {
   padding: 0.25rem 0.5rem;
