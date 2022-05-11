@@ -3,7 +3,7 @@
 This is a basic Markdown cheat-sheet.
 
 ---
-## Build with:
+## Built with:
 * JavaScript
 * CSS
 * HTML
